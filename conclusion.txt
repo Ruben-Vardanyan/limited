@@ -1,0 +1,34 @@
+
+str_replace(find this , replace with this , the whole text;);
+
+explode(" ",$text);
+strrev($text)
+
+mysqli_connect("localhost","root","","students");
+$conn->query($sql)
+$conn->fetch_assoc()
+
+
+header("Location: file.php");
+exit();
+
+range(start,end,step)
+array_slice($arr,0 ,3);
+array_merge($arr ,[1,3]);
+count
+array_sum
+array_product
+$arr[] = rand(0,10);
+shuffle($divs);
+
+sort($arr)
+rsort($arr)
+asort($arr)
+arsort($arr)
+ksort($arr)
+krsort($arr)
+
+$text = "rubenhello my name is rubenis";
+str_word_count($text). "<br>"; //5
+substr_count($text,"ruben"); //2
+substr($text,0,5); // ruben 
