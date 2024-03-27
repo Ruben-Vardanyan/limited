@@ -1,27 +1,30 @@
 <?php 
     $conn = mysqli_connect("localhost","root","","test");
-
     if(!$conn){
-        die("died: " . $conn->connect_error());
+        die("died" . mysqli_connect_error());
     }
-
     if($_SERVER['REQUEST_METHOD'] == "POST"){
-        if(isset($_POST["fullname"]) && isset($_POST["birthyear"])){
-            $sql = "INSERT INTO `student`(`fullname`, `birthyear`) 
-            VALUES ('{$_POST['fullname']}','{$_POST['birthyear']}')";
-            
-            if($conn->query($sql)){
-                echo "the student added";
-            }
-        }
+        if(isset($_POST['fullname']) && isset($_POST['address']) && isset($_POST['birthyear'])){
+            $fullname = $_POST['fullname'];
+            $address = $_POST['address'];
+            $birthyear = $_POST['birthyear'];
 
-        $conn->close();
+            $sql = "INSERT INTO `persons`( `fullname`, `address`, `birthyear`) 
+            VALUES ('$fullname','$address','$birthyear')";
+
+            if($conn->query($sql)){
+                echo "the person added";
+            }
+
+        }
     }
 ?>
 <form action="" method="post">
     fullname <br>
-    <input type="text" name="fullname" id=""> <br>
+    <input type="text" name="fullname"><br>
+    address <br>
+    <input type="text" name="address"><br>
     birthyear <br>
-    <input type="number" name="birthyear" min="1900" max="2024" id=""> <br>
+    <input type="number" name="birthyear" id=""><br>
     <input type="submit" value="insert">
 </form>
